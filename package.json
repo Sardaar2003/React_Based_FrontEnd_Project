@@ -12,7 +12,7 @@
     "axios": "^1.7.2",
     "crypto-browserify": "^3.12.0",
     "formik": "^2.4.6",
-    "react": "^16.8.0",
+    "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-icons": "^5.2.1",
     "react-loader-spinner": "^6.1.6",
@@ -23,7 +23,7 @@
     "redux": "^5.0.1",
     "redux-react-session": "^2.6.1",
     "redux-thunk": "^3.1.0",
-    "styled-components": "^6.1.11",
+    "styled-components": "^5.3.5",
     "web-vitals": "^2.1.4",
     "webpack": "^5.27.0",
     "yup": "^1.4.0"
