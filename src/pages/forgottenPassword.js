@@ -31,7 +31,7 @@ const ForgottenPassword = ({forgottenPassword})=>{
                 <Formik initialValues={
                     {
                     email:userEmail,
-                    redirectUrl:"http://localhost:3000/resetPassword",
+                    redirectUrl:"https://chimerical-concha-3f534e.netlify.app/resetPassword",
                     }
                 }
                 onSubmit={

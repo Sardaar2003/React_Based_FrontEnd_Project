@@ -66,6 +66,7 @@ export const StyledButton=styled(Link)`
     text-align: center;
     outline: 0;
     transition: ease-in-out 0.3s;
+    margin-bottom:10px;
 
     &:hover{
         background-color: #1B1A55;
@@ -75,13 +76,13 @@ export const StyledButton=styled(Link)`
     }
 `;
 
-export const ButtonGroup=styled.div`
+export const ButtonGroup = styled.div`
     display: flex;
-    justify-content: space-around;
-    flex-direction: row;
+    flex-direction: column; /* Change this line */
+    align-items: center;
+    margin-bottom: 20px;
     margin-top: 25px;
-    `;
-
+`;
 // Input Related Styles
 export const StyledInputText=styled.input`
     width: 350px;
@@ -118,18 +119,24 @@ export const StyledFormArea=styled.div`
     border: 1px solid rgba( 255, 255, 255, 0.18 );
     text-align: center;
     padding: 45px 55px;
+    margin: 20px;
+    top:20%;
 `;
 
-export const StyledFormButton=styled.button`
+export const StyledFormButton = styled.button`
     padding: 10px;
     width: 150px;
     background-color: transparent;
     font-size: 16px;
-    border: 2px solid #1B1A55;
+    border: 3px solid #1B1A55;
     border-radius: 25px;
     color: #1B1A55;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
     transition: ease-in-out 0.3s;
     outline: 0;
+    margin-bottom: 10px; /* Add this line */
 
     &:hover{
         background-color: #1B1A55;

@@ -204,3 +204,39 @@ export const resetPassword=(credentials,history,setFieldError,setSubmitting)=>{
         )
     }
 }
+
+export const apiCall01 = (credentials, history, setFieldError, setSubmitting) => {
+    console.log(credentials);
+    return async () => { 
+        await axios.post("https://react-based-project-updation.onrender.com/user/APIRequest_01",credentials,
+                {
+                    headers:{
+                        "Content-Type":"application/json"
+                    }
+                }
+        ).then((res) => {
+            const { data} = res;
+            const {status } = data;
+            if (status == "FAILED") {
+                const { message, orderID } = data;
+                console.log(res);
+                history(`/response/${message}/${orderID}/${status}`);
+            }
+            else {
+                const { responseData, gateWayResponseID, gateWayID, gateAuthCode, ORDERID, customerID, OrderNotes } = data;
+                console.log('Response Data:', responseData);
+                console.log('GateWay Response ID:', gateWayResponseID);
+                console.log('GateWay ID:', gateWayID);
+                console.log('GateAuthCode:', gateAuthCode);
+                console.log('Order ID:', ORDERID);
+                console.log('Customer ID:', customerID);
+                console.log('Order Notes:', OrderNotes);
+                history(`/responseSuccess/${status}/${responseData}/${gateWayResponseID}/${gateWayID}/${gateAuthCode}/${ORDERID}/${customerID}/${OrderNotes}`);
+            }
+            
+        })
+        .catch((err) => {
+            console.error(err);
+        })
+    };
+}

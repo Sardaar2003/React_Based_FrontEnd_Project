@@ -4,7 +4,7 @@ import { Navigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 const AuthRoute = ({ children }) => {
-  const isAuthenticated = useSelector((state) => state.session.isAuthenticated);
+  const { isAuthenticated } = useSelector((state) => state.session);
   return isAuthenticated ? children : <Navigate to="/login" />;
 };
 

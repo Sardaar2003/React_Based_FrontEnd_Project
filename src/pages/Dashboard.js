@@ -26,6 +26,7 @@ const Dashboard=({logoutUser,user})=>{
             <StyledFormArea>
                 <StyledTitle size={65}>Welcome, {user.name}</StyledTitle>
                 <ButtonGroup>
+                    <StyledButton to={`/entryData`}>SUBLYTICS</StyledButton>
                     <StyledButton onClick={()=>logoutUser(history)}>LOGOUT</StyledButton>
                 </ButtonGroup>
             </StyledFormArea>
