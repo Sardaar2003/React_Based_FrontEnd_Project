@@ -41,7 +41,9 @@ export const loginUser=(credentials,history,setFieldError,setSubmitting)=>{
                     sessionService.saveSession(token).then(()=>
                         {
                             sessionService.saveUser(userData).then(()=>
-                                {
+                            {
+                                // console.log(userData);
+                                localStorage.setItem("UserData", JSON.stringify(userData));
                                     history("/dashboard");
                                 }).catch(err=>console.error(err))
                         }).catch(err=>console.error(err))
@@ -207,6 +209,17 @@ export const resetPassword=(credentials,history,setFieldError,setSubmitting)=>{
 
 export const apiCall01 = (credentials, history, setFieldError, setSubmitting) => {
     console.log(credentials);
+    const storedUserData = localStorage.getItem("UserData");
+    if (storedUserData) {
+        const userData1 = JSON.parse(storedUserData);
+        credentials["Name"] = userData1.name;
+        console.log(credentials);
+    }
+    else {
+        history("/login");
+        setSubmitting(false);
+        return;
+    }
     return async () => { 
         await axios.post("https://react-based-project-updation.onrender.com/user/APIRequest_01",credentials,
                 {
@@ -216,7 +229,8 @@ export const apiCall01 = (credentials, history, setFieldError, setSubmitting) =>
                 }
         ).then((res) => {
             const { data} = res;
-            const {status } = data;
+            const { status } = data;
+            console.log(res);
             if (status == "FAILED") {
                 const { message, orderID } = data;
                 console.log(res);
